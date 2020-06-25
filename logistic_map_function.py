@@ -29,7 +29,7 @@ plt.scatter(z[:400],x2[:400],s=0.5)
 
 plt.xlim(0,4)
 plt.grid(True,ls=':',color='k')
-plt.title(r'$X_{n+1}  =  \lambda   X_n (1-X_n)$', fontsize=20)
+plt.title('Logistic Map Function: ' + r'$X_{n+1}  =  \lambda   X_n (1-X_n)$', fontsize=20)
 
 
 plt.xlabel(r'$\lambda$',fontsize=30)

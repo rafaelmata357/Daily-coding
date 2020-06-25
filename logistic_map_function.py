@@ -11,6 +11,52 @@ import numpy as np
 import matplotlib.ticker as ticker
 
 
+import os
+import argparse
+
+
+# 
+def get_args():
+    '''
+    Retrieves and parses two command line arguments provided by the user from 
+    command line. argparse module is used. 
+    If some arguments is missing default value is used. 
+    Command Line Arguments:
+    
+    Args:
+        1. Initial x value                           --initial_x
+        2. Iterations for each lambda value          --iter
+        3. Steps for lambda range 0 <= lambda <= 4   --steps
+   
+    This function returns these arguments as an ArgumentParser object.
+    Parameters:
+     None - simply using argparse module to create & store command line arguments
+    Returns:
+     parse_args() -data structure that stores the command line arguments object  
+    '''
+    
+    # Creates Argument Parser object named parser
+    parser = argparse.ArgumentParser('logistic_map_function.py',description='Graph logistic map function', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+    
+       
+    # Argument 1: Initial x value for the function 
+    parser.add_argument('--initial_x', type = float, default= 0.1,
+                    help = 'Inital x value')  
+    
+    # Argument 2: Y axis scale to use
+    parser.add_argument('--iter', type = int, default = 200 ,
+                    help = 'Iteration for each lambda value')   
+
+    # Argument 3: Number of steps to divide the lambda value from  0 to 4
+    parser.add_argument('--steps', type = int, default = 400 ,
+                    help = 'Iteration for each lambda value')  
+    
+   
+
+    return parser.parse_args()
+
+
 def log_function(lamb,x,maxNum): 
     result = [] 
 
@@ -21,7 +67,7 @@ def log_function(lamb,x,maxNum):
   
     return result 
 
-def compute_results(initial_x, steps):
+def compute_results(initial_x, steps, iterations):
     '''Fuction to compute the logistic function results
     
     Parameters:
@@ -34,9 +80,9 @@ def compute_results(initial_x, steps):
     '''
 
     x = np.linspace(0, 4, steps) 
-    y = [log_function(l, initial_x, 200) for l in x] 
-    y2 = [lamb[-150:] for lamb in y]
-    z = [[i]*150 for i in x] 
+    y = [log_function(l, initial_x, iterations) for l in x] 
+    y2 = [lamb[-50:] for lamb in y]
+    z = [[i]*50 for i in x] 
 
     return z, y2
 
@@ -54,7 +100,7 @@ def graph(x,y):
     '''
 
     plt.figure(figsize=(10,6))
-    plt.scatter(x[:400], y[:400],s=0.1)
+    plt.scatter(x, y,s=0.1)
     tick_major = 0.2
     tick_minor = 0.1
     plt.xlim(0,4.1)
@@ -69,9 +115,12 @@ def graph(x,y):
     plt.show()
 
 
-if __name__ == '__main__':  
+if __name__ == '__main__': 
 
-    initial_x = 0.1   #Initial value to feed the logistica map function
-    steps = 400       #Lambda steps evaluation 0 <= lambda <= 4
-    x, y = compute_results(initial_x, steps)
+    in_arg = get_args()               #Get variables from command line
+    initial_x = in_arg.initial_x      #Initial value to feed the logistica map function
+    iterations = in_arg.iter          #Number of iterations for each lambda value
+    steps = in_arg.steps              #Lambda steps evaluation 0 <= lambda <= 4
+      
+    x, y = compute_results(initial_x, steps, iterations)
     graph(x, y)

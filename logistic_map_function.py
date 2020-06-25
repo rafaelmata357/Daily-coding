@@ -21,6 +21,28 @@ def log_function(lamb,x,maxNum):
   
     return result 
 
+def compute_results(initial_x, steps):
+    '''Fuction to compute the logistic function results
+    
+    Parameters:
+            lamb: start value for the logistic function
+    
+    Returns:
+           x: array for each lambda value used
+           y: array with the output values for each lambda evaluated
+
+    '''
+
+    x = np.linspace(0, 4, steps) 
+    y = [log_function(l, initial_x, 200) for l in x] 
+    y2 = [lamb[-150:] for lamb in y]
+    z = [[i]*150 for i in x] 
+
+    return z, y2
+
+                    
+
+
 def graph(x,y):
     ''' Function to graph the log_function
     Params:
@@ -49,8 +71,7 @@ def graph(x,y):
 
 if __name__ == '__main__':  
 
-    x = np.linspace(0,4,400) 
-    y = [log_function(l,0.5,200) for l in x] 
-    x2 = [lamb[-150:] for lamb in y]
-    z = [[i]*150 for i in x] 
-    graph(z, x2)
+    initial_x = 0.1   #Initial value to feed the logistica map function
+    steps = 400       #Lambda steps evaluation 0 <= lambda <= 4
+    x, y = compute_results(initial_x, steps)
+    graph(x, y)

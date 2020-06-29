@@ -1,8 +1,21 @@
-''' Function to plot the logistic map function for different lambda values
-"f(x+1) = lamda*x*(1-x) Lambda: 0<lambda < 4
-x : Valor inicial
-maxNum : Cantidad max de generaciones, en tiempo
-'''
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# 
+# PROGRAMMER   : Rafael Mata M.
+# DATE CREATED :  20 June 2020                                 
+# REVISED DATE :  29 june   2020
+# PURPOSE: Create a program to plot the logistic map function for different lambda values
+#          f(x+1) = lamda*x*(1-x) Lambda: 0<lambda < 4 
+#          
+# 
+# Command Line Arguments:
+# 
+#        1. Initial x value                           --initial_x
+#        2. Iterations for each lambda value          --iter
+#        3. Steps for lambda range 0 <= lambda <= 4   --steps
+##
+
+# Imports python modules
 
 
 import matplotlib.pyplot as plt

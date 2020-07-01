@@ -1,3 +1,19 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# 
+# PROGRAMMER   : Rafael Mata M.
+# DATE CREATED :  20 June 2020                                 
+# REVISED DATE :  1 july   2020
+# PURPOSE: Test the probabilities using simulation of n cases for the monty hall game and demostrate that change the choice is the better option
+#          
+# 
+# Command Line Arguments:
+# 
+
+
+# Imports python modules
+
+
 import numpy as np
 import collections
 

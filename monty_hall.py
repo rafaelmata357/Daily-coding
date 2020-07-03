@@ -16,6 +16,7 @@
 
 import numpy as np
 import collections
+import matplotlib.pyplot as plt
 
 def choices(nsimulaciones):
     premios = np.array([['a','v','v'],['v','a','v'],['v','v','a']])
@@ -65,14 +66,18 @@ def calculate_win(espacio):
 
 
 if __name__ == '__main__':
+  
     juegos = int(input('Cantidad de juegos:'))
     espacio = choices(juegos)
     
     cambia_y_gana, no_cambia_y_gana, no_cambia = calculate_win(espacio)
-
+    
     print('Cambia y gana: {} no hace caso y gana: {}'.format(cambia_y_gana,no_cambia_y_gana))
     print('No Hace caso:', no_cambia)
-  
+    plt.bar(['Cambia y gana','No cambia y gana'],no_cambia.values())
+    plt.title('Monty hall results for {} games'.format(juegos))
+   
+    plt.show()
 
 
 

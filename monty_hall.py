@@ -76,6 +76,10 @@ if __name__ == '__main__':
     print('No Hace caso:', no_cambia)
     plt.bar(['Cambia y gana','No cambia y gana'],no_cambia.values())
     plt.title('Monty hall results for {} games'.format(juegos))
+    plt.ylabel('Number of games')
+    print(type(no_cambia.values()))
+    prob_win = no_cambia['v']/juegos*100
+    plt.text(0,juegos//2,str(prob_win)+'%')
    
     plt.show()
 

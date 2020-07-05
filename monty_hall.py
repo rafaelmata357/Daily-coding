@@ -61,7 +61,7 @@ def calculate_win(espacio):
         
         no_cambia = collections.Counter(elegido)
        
-    
+  
     return cambia_y_gana, no_cambia_y_gana, no_cambia
 
 
@@ -74,12 +74,14 @@ if __name__ == '__main__':
     
     print('Cambia y gana: {} no hace caso y gana: {}'.format(cambia_y_gana,no_cambia_y_gana))
     print('No Hace caso:', no_cambia)
-    plt.bar(['Cambia y gana','No cambia y gana'],no_cambia.values())
+    plt.bar(['Cambia y gana','No cambia y gana'],[no_cambia['v'],no_cambia['a']])
     plt.title('Monty hall results for {} games'.format(juegos))
     plt.ylabel('Number of games')
-    print(type(no_cambia.values()))
+   
     prob_win = no_cambia['v']/juegos*100
-    plt.text(0,juegos//2,str(prob_win)+'%')
+    plt.text(0,no_cambia['v']//2,'{:.2f}%'.format(prob_win))
+    plt.text(1,no_cambia['a']//2,'{:.2f}%'.format(100-prob_win))
+
    
     plt.show()
 

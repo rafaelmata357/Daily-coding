@@ -71,9 +71,6 @@ if __name__ == '__main__':
     espacio = choices(juegos)
     
     cambia_y_gana, no_cambia_y_gana, no_cambia = calculate_win(espacio)
-    
-    print('Cambia y gana: {} no hace caso y gana: {}'.format(cambia_y_gana,no_cambia_y_gana))
-    print('No Hace caso:', no_cambia)
     plt.bar(['Cambia y gana','No cambia y gana'],[no_cambia['v'],no_cambia['a']])
     plt.title('Monty hall results for {} games'.format(juegos))
     plt.ylabel('Number of games')

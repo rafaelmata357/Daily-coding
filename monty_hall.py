@@ -19,6 +19,36 @@ import collections
 import matplotlib.pyplot as plt
 import argparse
 
+def get_args():
+    '''
+    Retrieves and parses two command line arguments provided by the user from 
+    command line. argparse module is used. 
+    If some arguments is missing default value is used. 
+    Command Line Arguments:
+    
+    Args:
+        1. Games to simulate                           --games
+    
+   
+    This function returns these arguments as an ArgumentParser object.
+    Parameters:
+     None - simply using argparse module to create & store command line arguments
+    Returns:
+     parse_args() -data structure that stores the command line arguments object  
+    '''
+    
+    # Creates Argument Parser object named parser
+    parser = argparse.ArgumentParser('monty_hall.py',description='Monty hall game simulations', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+    
+       
+    # Argument 1: Initial x value for the function 
+    parser.add_argument('--games', type = int, default= 100,
+                    help = 'Number of games')  
+    
+    return parser.parse_args()
+
+
 def choices(nsimulaciones):
     premios = np.array([['a','v','v'],['v','a','v'],['v','v','a']])
     espacio = []
@@ -68,7 +98,9 @@ def calculate_win(espacio):
 
 if __name__ == '__main__':
   
-    juegos = int(input('Cantidad de juegos:'))
+
+    in_arg = get_args()               #Get variables from command line
+    juegos = in_arg.games           #Number of games to simulate
     espacio = choices(juegos)
     
     cambia_y_gana, no_cambia_y_gana, no_cambia = calculate_win(espacio)

@@ -104,13 +104,18 @@ if __name__ == '__main__':
     espacio = choices(juegos)
     
     cambia_y_gana, no_cambia_y_gana, no_cambia = calculate_win(espacio)
-    plt.bar(['Cambia y gana','No cambia y gana'],[no_cambia['v'],no_cambia['a']])
-    plt.title('Monty hall results for {} games'.format(juegos))
+    bar_chart = plt.bar(['Cambia y gana','No cambia y gana'],[no_cambia['v'],no_cambia['a']])
+    plt.title('Monty hall results for {} games'.format(juegos),fontsize=15)
     plt.ylabel('Number of games')
    
     prob_win = no_cambia['v']/juegos*100
-    plt.text(0,no_cambia['v']//2,'{:.2f}%'.format(prob_win))
-    plt.text(1,no_cambia['a']//2,'{:.2f}%'.format(100-prob_win))
+
+    for rect in bar_chart:    # To add the probabilty for each bar
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width()/2.0, height//2, '{:.2f}%'.format(height/juegos*100), ha='center', va='bottom')
+
+    #plt.text(0,no_cambia['v']//2,'{:.2f}%'.format(prob_win))
+    #plt.text(1,no_cambia['a']//2,'{:.2f}%'.format(100-prob_win))
 
    
     plt.show()

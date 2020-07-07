@@ -104,7 +104,10 @@ if __name__ == '__main__':
     espacio = choices(juegos)
     
     cambia_y_gana, no_cambia_y_gana, no_cambia = calculate_win(espacio)
-    bar_chart = plt.bar(['Cambia y gana','No cambia y gana'],[no_cambia['v'],no_cambia['a']])
+    
+    opacity = 0.5
+    bar_width = 0.6
+    bar_chart = plt.bar(['Change & Win','Stay & Lost'],[no_cambia['v'],no_cambia['a']],align='center', width=bar_width, alpha=opacity, color='g')
     plt.title('Monty hall results for {} games'.format(juegos),fontsize=15)
     plt.ylabel('Number of games')
    
@@ -116,6 +119,8 @@ if __name__ == '__main__':
 
     #plt.text(0,no_cambia['v']//2,'{:.2f}%'.format(prob_win))
     #plt.text(1,no_cambia['a']//2,'{:.2f}%'.format(100-prob_win))
+
+    plt.tight_layout()
 
    
     plt.show()

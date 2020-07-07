@@ -1,6 +1,7 @@
-# Daily-coding
+## Daily-coding
 Different programs/scripts  to try, practice, proof concepts  and test different code, ideas, etc.
 
+# Program 1
 - **logistic_map_function.py** : Program to graph and test the *Logistic map function* (https://en.wikipedia.org/wiki/Logistic_map) for different Lambda values
 
 # Running the program
@@ -11,10 +12,12 @@ Different programs/scripts  to try, practice, proof concepts  and test different
 
 ![example](https://github.com/rafaelmata357/Daily-coding/blob/master/logistic-example.png)
 
+
+# Program 2
 - **monthy_hall.py** : Program to simulate the probailistics of the classic monthy hall game with three doors and one prize
 
 # Running the program
 
-`python monthy_hall.py --games 2339 ``
+`python monthy_hall.py --games 2339 `
 
 ![example](https://github.com/rafaelmata357/Daily-coding/blob/master/monty-hall.png)

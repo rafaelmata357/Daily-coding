@@ -12,3 +12,9 @@ Different programs/scripts  to try, practice, proof concepts  and test different
 ![example](https://github.com/rafaelmata357/Daily-coding/blob/master/logistic-example.png)
 
 - **monthy_hall.py** : Program to simulate the probailistics of the classic monthy hall game with three doors and one prize
+
+# Running the program
+
+`python monthy_hall.py --games 2339 ``
+
+![example](https://github.com/rafaelmata357/Daily-coding/blob/master/monty-hall.png)

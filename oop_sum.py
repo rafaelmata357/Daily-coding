@@ -18,6 +18,11 @@ class Calculator:
             Returns: fib_series , list
         '''
 
+        initial_state = [1, 1]
+
+        for i in range(n):
+            print("This should be a Fibonacci Series....")
+
     
 
 
@@ -37,3 +42,4 @@ if __name__ == '__main__':
      sum = calc.add(10,2)
 
      print("The sum is:", sum)
+     calc.fib(5)
